@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nostra Avventura a Malta - Luglio 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #fef3c7 0%, #fed7aa 50%, #fca5a5 100%);
+            color: #44403c;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '☀️';
+            position: absolute;
+            font-size: 10em;
+            opacity: 0.1;
+            top: -30px;
+            right: -30px;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.4em;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .date-box {
+            background: white;
+            color: #dc2626;
+            display: inline-block;
+            padding: 18px 45px;
+            border-radius: 50px;
+            margin-top: 25px;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 3px solid #fed7aa;
+        }
+        
+        h2 {
+            color: #dc2626;
+            margin-bottom: 30px;
+            font-size: 2.3em;
+            text-align: left;
+            border-bottom: 4px solid #fbbf24;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .image-box {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 5px solid #fed7aa;
+        }
+        
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-box:hover img {
+            transform: scale(1.06);
+        }
+        
+        .detail-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 6px solid #f97316;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .detail-card strong {
+            color: #dc2626;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+        
+        .detail-card p {
+            color: #78716c;
+            margin: 10px 0;
+            padding-left: 25px;
+            font-size: 1.05em;
+        }
+        
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        
+        .cost-box {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cost-box:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.5);
+        }
+        
+        .cost-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .cost-box .price {
+            font-size: 3.2em;
+            font-weight: bold;
+            color: white;
+            margin: 15px 0;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .cost-box p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.05em;
+        }
+        
+        .total-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            font-size: 2.2em;
+            padding: 45px;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 40px;
+            font-weight: bold;
+            box-shadow: 0 12px 30px rgba(220, 38, 38, 0.4);
+            border: 4px solid #fbbf24;
+        }
+        
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .activity-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            border: 3px solid #f97316;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .activity-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
+            border-color: #dc2626;
+        }
+        
+        .activity-box .icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+        
+        .activity-box strong {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            color: #dc2626;
+        }
+        
+        .activity-box p {
+            color: #78716c;
+            font-size: 1em;
+        }
+        
+        .trust-panel {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 25px 0;
+            border: 3px solid #10b981;
+        }
+        
+        .trust-panel h3 {
+            color: #047857;
+            margin-bottom: 20px;
+            font-size: 1.7em;
+        }
+        
+        .trust-item {
+            padding: 14px 0;
+            color: #065f46;
+            border-bottom: 1px solid #6ee7b7;
+            font-size: 1.05em;
+        }
+        
+        .trust-item:last-child {
+            border-bottom: none;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .photo-gallery .image-box {
+            margin: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 50px 30px;
+            color: #78716c;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        .note-box {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-weight: bold;
+            text-align: center;
+            border: 3px solid #dc2626;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌊 La Nostra Avventura a Malta 🌊</h1>
+            <p class="subtitle">Un viaggio pensato con cura - Tutti i dettagli studiati così che possiamo e potete stare tranquilli</p>
+            <div class="date-box">📅 Dal 22 al 29 Luglio 2026 - 8 Giorni Insieme</div>
+        </header>
+
+        <div class="section">
+            <h2>✈️ Il Viaggio in Aereo</h2>
+            
+            <!-- INSERIRE QUI: Volo.png -->
+            <div class="image-box">
+                <img src="Volo.png" alt="Dettagli del nostro volo">
+            </div>
+            
+            <div class="detail-card">
+                <strong>🛫 Partenza - Martedì 22 Luglio, Mattina Presto</strong>
+                <p>✓ Ci troviamo all'aeroporto di Bologna alle 5:30 del mattino</p>
+                <p>✓ Il volo parte alle 7:30 direzione Malta</p>
+                <p>✓ Arriviamo a Malta alle 9:10 - abbiamo tutto il giorno per visitare</p>
+                <p>✓ Possiamo visitare la città, fare colazione, riposarci dopo il viaggio e poi alle 4 ci accolgono nella casa</p>
+            </div>
+            
+            <div class="detail-card">
+                <strong>🛬 Ritorno - Martedì 29 Luglio, Mattina</strong>
+                <p>✓ Partiamo da Malta alle 09:40</p>
+                <p>✓ Volo diretto per Bologna - nessuno scalo!</p>
+                <p>✓ Atterriamo a Bologna alle 11:30</p>
+                <p>✓ Volo veloce di solo 1 ora e 50 minuti</p>
+            </div>
+            
+            <div class="note-box">
+                ⏰ Importante da sapere: I prezzi dei biglietti aerei aumentano ogni ora. Prima prenotiamo, più risparmieremo! Il prezzo che vedete ora è ottimo ma sale sicuramente.
+            </div>
+            
+            <div class="detail-card">
+                <strong>🎒 Cosa Possiamo Portare</strong>
+                <p>✓ Ognuno di noi può portare 1 bagaglio a mano</p>
+                <p>✓ Tipo zaino grande o trolley piccolo</p>
+                <p>✓ Misure massime: 40cm x 20cm x 25cm</p>
+                <p>✓ Prima di partire lo misuriamo per essere sicuri</p>
+                <p>✓ Compagnia aerea: Ryanair (seria e affidabile)</p>
+            </div>
+            
+            <div class="trust-panel">
+                <h3>🛡️ Perché Potete Stare Tranquilli</h3>
+                <div class="trust-item">
+                    ✓ Viaggiamo con Ryanair, una delle compagnie più grandi d'Europa
+                </div>
+                <div class="trust-item">
+                    ✓ Siamo nel 2026 restiamo sempre in contatto via telefono e WhatsApp
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏠 Dove Dormiremo</h2>
+            
+            <!-- INSERIRE QUI: Casa_da_fuori.jpg -->
+            <div class="image-box">
+                <img src="Casa_da_fuori.jpg" alt="La nostra casa a Malta">
+            </div>
+            
+            <div class="detail-card">
+                <strong>🏡 La Nostra Casa per 8 Giorni</strong>
+                <p>📍 Si trova a San Ġwann - un quartiere sicuro e tranquillo di Malta</p>
+                <p>🏡 È una casa tutta per noi, non un hotel affollato</p>
+                <p>🛏️ Ci sono i letti separati</p>
+                <p>🚿 Un bagno completpo</p>
+                <p>🍳 Cucina attrezzata - cuciniamo per risparmiare</p>
+                <p>🌅 C'è una terrazza e un tetto accessibile con vista sulla città</p>
+                <p>📶 WiFi gratuito - possiamo chiamarvi e scrivervi senza problemi</p>
+                <p>🚗 Vicina all'aeroporto (15 minuti)</p>
+                <p>🛒 Vicina a supermercati e negozi</p>
+            </div>
+            
+            <div class="trust-panel">
+                <h3>🛡️ Sicurezza dell'Alloggio</h3>
+                <div class="trust-item">
+                    ✓ Il proprietario è referenziato e affidabile
+                </div>
+                <div class="trust-item">
+                    ✓ La zona è ben illuminata e frequentata
+                </div>
+                <div class="trust-item">
+                    ✓ C'è lo staff locale che possiamo chiamare 24 ore su 24
+                </div>
+            </div>
+            
+            <h3 style="color: #dc2626; margin: 40px 0 25px 0; font-size: 1.9em;">📷 Vi Facciamo Vedere Tutte le Stanze</h3>
+            
+            <!-- INSERIRE QUI LE 8 FOTO: Camera.jpg, Cucina 1.jpg, Cucina 2.jpg, Bagno 1.jpg, Bagno 2.jpg, Corridoio.jpg, Balcone.jpg, Tetto.jpg -->
+            <div class="photo-gallery">
+                <div class="image-box">
+                    <img src="Camera.jpg" alt="Una delle camere da letto">
+                </div>
+                <div class="image-box">
+                    <img src="Cucina 1.jpg" alt="La cucina - parte 1">
+                </div>
+                <div class="image-box">
+                    <img src="Cucina 2.jpg" alt="La cucina - parte 2">
+                </div>
+                <div class="image-box">
+                    <img src="Bagno 1.jpg" alt="Il primo bagno">
+                </div>
+                <div class="image-box">
+                    <img src="Bagno 2.jpg" alt="Il secondo bagno">
+                </div>
+                <div class="image-box">
+                    <img src="Corridoio.jpg" alt="Il corridoio della casa">
+                </div>
+                <div class="image-box">
+                    <img src="Balcone.jpg" alt="Il balcone con vista">
+                </div>
+                <div class="image-box">
+                    <img src="Tetto.jpg" alt="La terrazza sul tetto">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎉 Le Attività e il Divertimento</h2>
+            
+            <!-- INSERIRE QUI: Offerta_VIP.png -->
+            <div class="image-box">
+                <img src="Offerta_VIP.png" alt="Il pacchetto di attività">
+            </div>
+            
+            <div class="detail-card">
+                <strong>🌟 Pacchetto VIP Full Experience - €280 a testa</strong>
+                <p>Questo è il pacchetto più completo che abbiamo trovato. Include tantissime attività che, se comprate separatamente, costerebbero molto di più (oltre €500!). Ci permette di vivere Malta al massimo con la sicurezza di avere sempre qualcuno che ci aiuta.</p>
+            </div>
+            
+            <div class="activity-grid">
+                <div class="activity-box">
+                    <div class="icon">🏊</div>
+                    <strong>2 Feste in Piscina</strong>
+                    <p>Due serate con musica e DJ in piscine esclusive</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">🎵</div>
+                    <strong>5 Serate Discoteca</strong>
+                    <p>Ingresso garantito + 1 volta entriamo come VIP</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">🏖️</div>
+                    <strong>1 Festa in Spiaggia</strong>
+                    <p>Una serata sulla spiaggia al tramonto</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">🚤</div>
+                    <strong>Giro in Moto d'Acqua</strong>
+                    <p>Un'esperienza adrenalinica sul mare</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">⛵</div>
+                    <strong>Festa in Barca</strong>
+                    <p>Tutto incluso: cibo, bevande e musica</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">👥</div>
+                    <strong>Staff Sempre Disponibile</strong>
+                    <p>Persone dello staff presenti 24/7 a Malta</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">💬</div>
+                    <strong>Gruppo WhatsApp</strong>
+                    <p>Per info immediate e restare connessi</p>
+                </div>
+                
+                <div class="activity-box">
+                    <div class="icon">🎟️</div>
+                    <strong>Mai Fare la Coda</strong>
+                    <p>Ingresso prioritario ovunque</p>
+                </div>
+            </div>
+            
+            <div class="trust-panel">
+                <h3>✅ Perché Questo Pacchetto è Sicuro</h3>
+                <div class="trust-item">
+                    ✓ L'organizzatore ha migliaia di recensioni positive verificate
+                </div>
+                <div class="trust-item">
+                    ✓ Lo staff vive a Malta tutto l'anno - non scompaiono dopo
+                </div>
+                <div class="trust-item">
+                    ✓ Tutti gli eventi sono in luoghi autorizzati e controllati
+                </div>
+                <div class="trust-item">
+                    ✓ Ci danno un numero di telefono per emergenze 24/7
+                </div>
+                <div class="trust-item">
+                    ✓ Gruppo WhatsApp per comunicare sempre con loro
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💰 Quanto Costa Tutto (Dettagliato)</h2>
+            
+            <div class="cost-grid">
+                <div class="cost-box">
+                    <h3>✈️ VOLO</h3>
+                    <div class="price">€148,58</div>
+                    <p>Andata e ritorno</p>
+                    <p>Bologna-Malta-Malta-Bologna</p>
+                    <p>Bagaglio incluso</p>
+                </div>
+                
+                <div class="cost-box">
+                    <h3>🏠 CASA</h3>
+                    <div class="price">€37</div>
+                    <p>Per 8 notti</p>
+                    <p>22-29 Luglio</p>
+                    <p>Quota a testa</p>
+                </div>
+                
+                <div class="cost-box">
+                    <h3>🎉 ATTIVITÀ</h3>
+                    <div class="price">€280</div>
+                    <p>Pacchetto VIP completo</p>
+                    <p>8 eventi + staff</p>
+                    <p>Tutto incluso</p>
+                </div>
+            </div>
+            
+            <!-- INSERIRE QUI: Totale individuale.png -->
+            <div class="image-box" style="max-width: 500px; margin: 40px auto;">
+            </div>
+            
+            <div class="total-banner">
+                💵 TOTALE PER OGNUNO DI NOI: €465,58
+            </div>
+            
+            <div class="detail-card" style="margin-top: 35px;">
+                <strong>📊 Riepilogo Chiaro delle Spese:</strong>
+                <p>• Volo andata e ritorno: €148,58</p>
+                <p>• Casa per 8 notti (nostra quota): €37,00</p>
+                <p>• Pacchetto attività VIP: €280,00</p>
+                <p>━━━━━━━━━━━━━━━━━━━━━━</p>
+                <p style="font-size: 1.15em; color: #dc2626; font-weight: bold;">• TOTALE: €465,58 a persona</p>
+            </div>
+            
+            <div class="note-box" style="margin-top: 25px;">
+                💡 Consiglio: Portare altri €50 massimo €100 per la spesa visto che mangiamo a casa, comprare souvenir, prendere taxi se serve, e altre piccole spese personali
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📱 Informazioni Utili Per Voi Genitori</h2>
+            
+            <div class="detail-card">
+                <strong>🏥 Salute e Assistenza Medica</strong>
+                <p>✓ Malta fa parte dell'Unione Europea come l'Italia</p>
+                <p>✓ La nostra Tessera Sanitaria Europea funziona normalmente</p>
+                <p>✓ Se abbiamo bisogno del dottore è gratis come in Italia</p>
+                <p>✓ Il numero di emergenza è 112 (come in tutta Europa)</p>
+            </div>
+            
+            <div class="detail-card">
+                <strong>📞 Come Restiamo in Contatto</strong>
+                <p>✓ I nostri cellulari funzionano normalmente (roaming UE gratuito)</p>
+                <p>✓ Nella casa c'è il WiFi gratuito</p>
+                <p>✓ Possiamo fare videochiamate ogni giorno</p>
+                <p>✓ Abbiamo il gruppo WhatsApp per aggiornarci tra noi</p>
+                <p>✓ Se li volete vi daremo tutti i contatti dello staff per emergenze</p>
+            </div>
+            
+            <div class="detail-card">
+                <strong>💶 Soldi e Pagamenti</strong>
+                <p>✓ A Malta si usa l'Euro - non dobbiamo cambiare niente!</p>
+                <p>✓ Le carte di credito e bancomat funzionano ovunque</p>
+                <p>✓ I prezzi sono simili a quelli italiani</p>
+                <p>✓ Consiglio di budget extra: €50 max €100 per la spesa</p>
+            </div>
+            
+            <div class="detail-card">
+                <strong>🗣️ Lingua e Comunicazione</strong>
+                <p>✓ A Malta si parlano Maltese e Inglese (lingue ufficiali)</p>
+                <p>✓ Tutti parlano perfettamente inglese e proprio qui che entra Kappa che è madrelingua</p>
+                <p>✓ Tantissimi capiscono anche l'italiano!</p>
+                <p>✓ È un paese abituato ai turisti - molto accogliente</p>
+            </div>
+            
+            <div class="trust-panel">
+                <h3>🛡️ Come Vi Teniamo Sempre Informati</h3>
+                <div class="trust-item">
+                    ✓ Videochiamata quotidiana con voi (se e quando volete)
+                </div>
+                <div class="trust-item">
+                    ✓ Vi mandiamo foto e aggiornamenti durante il giorno
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.4em; color: #dc2626; margin-bottom: 20px;">
+                ❤️ Abbiamo preparato tutto con attenzione per farvi stare tranquilli ❤️
+            </p>
+            <p>Sappiamo che per voi è importante che siamo al sicuro, e lo è anche per noi.</p>
+            <p style="margin-top: 20px;">Siamo pronti a rispondere a tutte le vostre domande e dubbi - con calma e sincerità.</p>
+            <p style="margin-top: 25px; color: #991b1b; font-weight: bold;">
+                Questa vacanza è importante per noi, ma la vostra serenità lo è ancora di più.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Animazione prezzi con effetto contatore
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceElements = document.querySelectorAll('.price');
+            
+            priceElements.forEach(element => {
+                const targetPrice = parseFloat(element.textContent.replace('€', '').replace(',', '.'));
+                let currentPrice = 0;
+                const step = targetPrice / 70;
+                const intervalTime = 20;
+                
+                const counter = setInterval(() => {
+                    currentPrice += step;
+                    if (currentPrice >= targetPrice) {
+                        element.textContent = '€' + targetPrice.toFixed(2).replace('.', ',');
+                        clearInterval(counter);
+                    } else {
+                        element.textContent = '€' + currentPrice.toFixed(2).replace('.', ',');
+                    }
+                }, intervalTime);
+            });
+            
+            // Effetto hover sulle activity box
+            const activityBoxes = document.querySelectorAll('.activity-box');
+            activityBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, #fed7aa 0%, #fca5a5 100%)';
+                });
+                box.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)';
+                });
+            });
+            
+            // Scroll smooth quando si clicca su immagini
+            document.querySelectorAll('.image-box').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
